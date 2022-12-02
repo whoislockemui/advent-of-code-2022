@@ -3,22 +3,17 @@ input = open("input.txt", "r")
 calories = []
 total = 0
 
-for lines in input:
-    
-    if lines != "\n":
-        total += int(lines)
+for line in input:
+    if line != "\n":
+        total += int(line)
     else:
         calories.append(total)
         total = 0
 
-maxCalories = max(calories)
+topCalories = 0
 
-calories.remove(maxCalories)
-secondBest = max(calories)
-
-calories.remove(secondBest)
-thirdWorst = max(calories)
-
-topCalories = maxCalories + secondBest + thirdWorst
+for n in range(3):
+    topCalories += max(calories)
+    calories.remove(max(calories))
 
 print("Top 3 total:", topCalories)

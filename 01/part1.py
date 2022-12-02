@@ -3,9 +3,9 @@ input = open("input.txt", "r")
 calories = []
 total = 0
 
-for lines in input:
-    if lines != "\n":
-        total += int(lines)
+for line in input:
+    if line != "\n":
+        total += int(line)
     else:
         calories.append(total)
         total = 0
