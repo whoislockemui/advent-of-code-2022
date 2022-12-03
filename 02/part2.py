@@ -23,10 +23,10 @@ def shapePoints(input, outcome):
             return 2
 
 # new function
-def shapePointsTwo(input,outcome):
-    if ("A" in input and outcome == "lose") or ("B" in input and outcome == "win") or ("C" in input and outcome == "draw"):
+def shapePointsTwo(input):
+    if ("A X" in input) or ("B Z" in input) or ("C Y" in input):
         return 3
-    elif ("A" in input and outcome == "win") or ("B" in input and outcome == "draw") or ("C" in input and outcome == "lose"):
+    elif ("A Z" in input) or ("B Y" in input) or ("C X" in input):
         return 2
     else:
         return 1
@@ -35,13 +35,13 @@ input = open("input.txt", "r")
 score = 0
 
 for line in input:
-    if "X" in line:
-        score += shapePointsTwo(line, "lose")
-    elif "Y" in line:
+    if "X" in line: # lose
+        score += shapePointsTwo(line)
+    elif "Y" in line: # draw
         score += 3
-        score += shapePointsTwo(line, "draw")
-    else:
+        score += shapePointsTwo(line)
+    else: # win
         score += 6
-        score += shapePointsTwo(line, "win")
+        score += shapePointsTwo(line)
 
 print(score)
