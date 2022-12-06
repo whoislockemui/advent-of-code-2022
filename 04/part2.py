@@ -13,7 +13,9 @@ for line in input:
     D = int(partnerTwo[1])
 
     if (A >= C and A <= D and B <= D) or \
-       (C >= A and C <= B and D <= B):
+       (C >= A and C <= B and D <= B) or \
+       (A <= C and B <= D and B >= C) or \
+       (C <= A and D <= B and D >= A):
         totalOverlap += 1
 
 print(totalOverlap)
